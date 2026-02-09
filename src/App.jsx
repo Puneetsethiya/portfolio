@@ -273,8 +273,7 @@ function Hero({ focusSection }) {
   return (
     <SectionWrapper id="home" focusSection={focusSection}>
       <div
-        className="relative h-[85vh] sm:h-[90vh] md:h-[100vh] bg-cover bg-[center_10%] flex items-end p-6 md:p-10 pt-24"
-
+        className="relative min-h-[calc(100dvh-80px)] md:min-h-[calc(100dvh-96px)] bg-cover bg-center md:bg-[center_5%] flex items-end p-6 md:p-10"
 
 
         style={{ backgroundImage: "url(/assets/hero.png)" }}
