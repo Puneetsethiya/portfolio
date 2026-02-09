@@ -273,7 +273,9 @@ function Hero({ focusSection }) {
   return (
     <SectionWrapper id="home" focusSection={focusSection}>
       <div
-        className="relative h-[85vh] md:min-h-screen bg-cover bg-[center_10%] flex items-end p-6 md:p-10"
+        className="relative h-[85vh] sm:h-[90vh] md:h-[100vh] bg-cover bg-[center_10%] flex items-end p-6 md:p-10 pt-24"
+
+
 
         style={{ backgroundImage: "url(/assets/hero.png)" }}
       >
@@ -331,7 +333,8 @@ function ProjectCard({ p }) {
     <motion.div
       whileHover={{ scale: 1.06, y: -10 }}
       transition={{ type: "spring", stiffness: 200, damping: 15 }}
-      className="w-full md:min-w-[380px] relative hover:z-50"
+      className="w-full relative hover:z-50"
+
 
     >
       <Card className="bg-zinc-900 transition-shadow duration-300 hover:shadow-2xl overflow-hidden">
@@ -454,7 +457,8 @@ function ProjectsRow({ focusSection }) {
         {isFew ? (
 
           /* GRID LAYOUT (3 or less projects) */
-         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 pt-6 pb-8">
+         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 pt-6 pb-8">
+
 
             {projects.map((p,i)=><ProjectCard key={i} p={p}/>)}
 
