@@ -273,13 +273,14 @@ function Hero({ focusSection }) {
   return (
     <SectionWrapper id="home" focusSection={focusSection}>
       <div
-        className="relative min-h-[calc(100dvh-80px)] md:min-h-[calc(100dvh-96px)] bg-cover bg-center md:bg-[center_5%] flex items-end p-6 md:p-10"
-
-
+        className="relative min-h-[100dvh] pt-24 md:pt-28 bg-cover bg-center md:bg-[center_5%] flex items-end p-6 md:p-10"
         style={{ backgroundImage: "url(/assets/hero.png)" }}
       >
 
-        {/* Netflix style dark overlay */}
+        {/* Top blend so image isn't cut under navbar */}
+        <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-black/90 to-transparent" />
+
+        {/* Main dark overlay */}
         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-black/20" />
 
         <motion.div
@@ -287,11 +288,12 @@ function Hero({ focusSection }) {
           animate={{ opacity: 1, y: 0 }}
           className="max-w-xl relative z-10"
         >
-          <p className="text-base md:text-xl mb-6 text-white drop-shadow-lg">
+          <p className="text-base md:text-xl mb-2 text-white drop-shadow-lg">
             MERN Stack Developer (MongoDB • ExpressJs • React • NodeJs)
-           <p className="text-sm text-gray-300 mb-4">3+ Full-Stack Apps  •  7 Competition Wins  •    Active Competitive Programmer
-</p>
+          </p>
 
+          <p className="text-sm text-gray-300 mb-6">
+            3+ Full-Stack Apps • 7 Competition Wins • Active Competitive Programmer
           </p>
 
           <div className="flex flex-wrap gap-3">
@@ -319,6 +321,7 @@ function Hero({ focusSection }) {
     </SectionWrapper>
   );
 }
+
 
 
 /* ---------- Projects ---------- */
