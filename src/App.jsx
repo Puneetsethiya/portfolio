@@ -92,6 +92,19 @@ function Navbar({ active, setActive, onNavigate, showUnderline }) {
   const [aboutOpen, setAboutOpen] = useState(false);
   const [imageOpen, setImageOpen] = useState(false);
 
+  useEffect(() => {
+  if (aboutOpen || imageOpen) {
+    document.body.style.overflow = "hidden";
+  } else {
+    document.body.style.overflow = "auto";
+  }
+
+  return () => {
+    document.body.style.overflow = "auto";
+  };
+}, [aboutOpen, imageOpen]);
+
+
 
   const linkClass = (id) =>
     `relative cursor-pointer px-2 py-1 hover:text-white transition ${
@@ -260,7 +273,7 @@ function Hero({ focusSection }) {
   return (
     <SectionWrapper id="home" focusSection={focusSection}>
       <div
-        className="relative min-h-screen bg-cover bg-[center_20%] flex items-end p-6 md:p-10"
+        className="relative h-[85vh] md:min-h-screen bg-cover bg-[center_10%] flex items-end p-6 md:p-10"
 
         style={{ backgroundImage: "url(/assets/hero.png)" }}
       >
@@ -318,7 +331,8 @@ function ProjectCard({ p }) {
     <motion.div
       whileHover={{ scale: 1.06, y: -10 }}
       transition={{ type: "spring", stiffness: 200, damping: 15 }}
-      className="min-w-[320px] md:min-w-[400px] relative hover:z-50"
+      className="w-full md:min-w-[380px] relative hover:z-50"
+
     >
       <Card className="bg-zinc-900 transition-shadow duration-300 hover:shadow-2xl overflow-hidden">
 
@@ -328,7 +342,7 @@ function ProjectCard({ p }) {
           <img
             src={p.img}
             alt={p.title}
-            className="h-48 md:h-56 w-full object-contain bg-black transition duration-500 group-hover:scale-105"
+            className="h-48 md:h-56 w-full object-cover bg-black transition duration-500 group-hover:scale-105"
           />
 
           {/* DEMO CREDENTIALS OVERLAY */}
@@ -429,7 +443,8 @@ function ProjectsRow({ focusSection }) {
 
   return (
     <SectionWrapper id="projects" focusSection={focusSection}>
-      <div className="px-4 md:px-8 mt-8 overflow-visible relative">
+      <div className="w-full px-4 md:px-10 mt-8 relative overflow-x-hidden">
+
 
       <h3 className="text-xl md:text-2xl mb-4 font-semibold flex items-center gap-2 section-title-glow">
   <Folder size={20}/> Projects
@@ -439,7 +454,7 @@ function ProjectsRow({ focusSection }) {
         {isFew ? (
 
           /* GRID LAYOUT (3 or less projects) */
-          <div className="grid md:grid-cols-3 gap-8 pt-6 pb-8">
+         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 pt-6 pb-8">
 
             {projects.map((p,i)=><ProjectCard key={i} p={p}/>)}
 
@@ -494,13 +509,14 @@ function AchievementsRow({ focusSection }) {
 
   return (
     <SectionWrapper id="achievements" focusSection={focusSection}>
-      <div className="px-4 md:px-8 mt-10">
+      <div className="w-full px-4 md:px-10 mt-10">
 
         <h3 className="text-xl md:text-2xl mb-4 font-semibold flex items-center gap-2 section-title-glow">
           <Trophy size={20}/> Achievements
         </h3>
 
-        <div className="grid sm:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full">
+
 
           {achievements.map((a,i)=>(
 
@@ -596,12 +612,13 @@ function AchievementsRow({ focusSection }) {
 function CertificationsRow({ focusSection }) {
   return (
     <SectionWrapper id="certifications" focusSection={focusSection}>
-      <div className="px-4 md:px-8 mt-10">
+      <div className="w-full px-4 md:px-10 mt-10">
         <h3 className="text-xl md:text-2xl mb-4 font-semibold flex items-center gap-2 section-title-glow">
   <Award size={20}/> Certifications
 </h3>
 
-        <div className="grid md:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full">
+
           {certifications.map((c,i)=>(
             <a key={i} href={c.link} target="_blank" rel="noreferrer">
               <Card className="bg-zinc-800 border border-zinc-700 hover:bg-zinc-700">
@@ -678,13 +695,14 @@ function SkillsRow({ focusSection }) {
 
   return (
     <SectionWrapper id="skills" focusSection={focusSection}>
-      <div className="px-4 md:px-8 mt-10">
+      <div className="w-full px-4 md:px-10 mt-10">
 
         <h3 className="text-xl md:text-2xl mb-6 font-semibold flex items-center gap-2 section-title-glow">
           <Code2 size={20}/> Skills
         </h3>
 
-      <div className="grid md:grid-cols-2 gap-8 overflow-visible">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
+
 
   {skillGroups.map((group, i) => (
     <motion.div
@@ -905,7 +923,8 @@ useEffect(() => {
 
 
   return (
-    <div className="bg-black text-white min-h-screen select-none">
+    <div className="bg-black text-white min-h-screen select-none overflow-x-hidden">
+
       <Navbar active={active} setActive={setActive} onNavigate={handleNavigate} showUnderline={showUnderline}/>
       <Hero focusSection={focusSection}/>
       <ProjectsRow focusSection={focusSection}/>
