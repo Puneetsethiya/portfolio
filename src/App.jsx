@@ -299,7 +299,9 @@ function Hero({ focusSection }) {
           <div className="flex gap-2">
             <a href="/resume.pdf" target="_blank" rel="noreferrer">
               <Button className="bg-red-600 text-white hover:bg-red-700 flex items-center gap-1 px-2 py-1 text-xs sm:px-4 sm:py-2 sm:text-sm">
-                <Play size={16}/>View Resume
+                <Play size={16}/>
+                  <span className="sm:hidden">Resume</span>
+                  <span className="hidden sm:inline">View Resume</span>
               </Button>
             </a>
 
