@@ -296,21 +296,21 @@ function Hero({ focusSection }) {
             3+ Full-Stack Apps • 7 Competition Wins • Active Competitive Programmer
           </p>
 
-          <div className="flex flex-wrap gap-3">
+          <div className="flex gap-2">
             <a href="/resume.pdf" target="_blank" rel="noreferrer">
-              <Button className="bg-red-600 text-white hover:bg-red-700 flex items-center gap-2">
+              <Button className="bg-red-600 text-white hover:bg-red-700 flex items-center gap-1 px-2 py-1 text-xs sm:px-4 sm:py-2 sm:text-sm">
                 <Play size={16}/>View Resume
               </Button>
             </a>
 
             <a href="https://www.linkedin.com/in/puneet-sethiya-" target="_blank" rel="noreferrer">
-              <Button className="bg-zinc-900 text-white border border-zinc-700 hover:shadow-[0_0_10px_rgba(255,255,255,0.7)] hover:border-white transition-all flex items-center gap-2">
+              <Button className="bg-zinc-900 text-white border border-zinc-700 hover:shadow-[0_0_10px_rgba(255,255,255,0.7)] hover:border-white transition-all flex items-center gap-1 px-2 py-1 text-xs sm:px-4 sm:py-2 sm:text-sm">
                 <Linkedin size={16}/>LinkedIn
               </Button>
             </a>
 
             <a href="https://github.com/Puneetsethiya" target="_blank" rel="noreferrer">
-              <Button className="bg-zinc-900 text-white border border-zinc-700 hover:shadow-[0_0_10px_rgba(255,255,255,0.7)] hover:border-white transition-all flex items-center gap-2">
+              <Button className="bg-zinc-900 text-white border border-zinc-700 hover:shadow-[0_0_10px_rgba(255,255,255,0.7)] hover:border-white transition-all flex items-center gap-1 px-2 py-1 text-xs sm:px-4 sm:py-2 sm:text-sm">
                 <Github size={16}/>GitHub
               </Button>
             </a>
